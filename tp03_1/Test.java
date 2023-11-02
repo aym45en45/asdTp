@@ -1,6 +1,8 @@
+import java.text.DecimalFormat;
 import java.util.Random;
 
-public class Main {
+public class Test {
+    private static final int N = 10;
     private static final String[] NAMES = {
             "Muhammad", "Aisha", "Ahmed", "Fatima", "Omar", "Leila", "Hasan", "Layla", "Ali", "Mariam"
     };
@@ -10,13 +12,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Etudiant[] etudiant = new Etudiant[5];
-        Etudiant[] etudiantTri = new Etudiant[5];
-        for (int i = 0; i < 5; i++) {
+        Etudiant[] etudiant = new Etudiant[N];
+        Etudiant[] etudiantTri = new Etudiant[N];
+        for (int i = 0; i < N; i++) {
             Random random = new Random();
             String name = getRandomName();
             String prenom = getRandomPrenom();
             float note = random.nextFloat(20);
+
+            DecimalFormat df = new DecimalFormat("#.##");// thaz 2 number mora fasila
+            note = Float.parseFloat(df.format(note));
 
             etudiant[i] = new Etudiant(name, prenom, note);
         }
