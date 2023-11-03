@@ -1,5 +1,6 @@
 public class TableauIteratif extends Tableau {
-    Etudiant[] tab,tabTrie;
+    Etudiant[] tab;
+    Etudiant[] tabTrie;
     
     public TableauIteratif(Etudiant[] tab, Etudiant[] tabTrie) {
         super(tab, tabTrie);
@@ -8,8 +9,7 @@ public class TableauIteratif extends Tableau {
     }
 
     @Override
-    public void triBulle(Etudiant[] tab) {
-        tabTrie=tab;
+    public void triBulle() {
         int passage = 0;
         boolean permutation = true;
 
@@ -24,42 +24,40 @@ public class TableauIteratif extends Tableau {
                     tabTrie[i + 1] = temp;
                 }
             }
-
+            
         }
-
     }
 
     @Override
-    public void triInsertion(Etudiant[] tab) {
-        tabTrie=tab;
+    public void triInsertion() {
         Etudiant box;
 
-    for (int i = 1; i < tabTrie.length; i++) {
-        box = tabTrie[i];
+    for (int i = 1; i < tab.length; i++) {
+        box = tab[i];
         int j = i;
-        while (j > 0 && tabTrie[j - 1].note < box.note) {
-            tabTrie[j] = tabTrie[j - 1];
+        while (j > 0 && tab[j - 1].note < box.note) {
+            tab[j] = tab[j - 1];
             j--;
         }
-        tabTrie[j] = box;
+        tab[j] = box;
     }
+    tabTrie=tab;
     }
 
     @Override
-    public void triSelection(Etudiant[] tab) {
-        tabTrie=tab;
+    public void triSelection() {
         int max;
         Etudiant temp;
-    for (int i = 0; i < tabTrie.length - 1; i++) {
+    for (int i = 0; i < tab.length - 1; i++) {
         max = i;
-        for (int j = i + 1; j < tabTrie.length; j++) {
-            if (tabTrie[j].note > tabTrie[max].note) {
+        for (int j = i + 1; j < tab.length; j++) {
+            if (tab[j].note > tab[max].note) {
                 max = j;
             }   
         }
-        temp = tabTrie[i];
-        tabTrie[i] = tabTrie[max];
-        tabTrie[max] = temp;
+        temp = tab[i];
+        tab[i] = tab[max];
+        tab[max] = temp;
     }
     }   
 }

@@ -1,12 +1,13 @@
 public abstract class Tableau {
-    private static final int N = 10;
-    Etudiant[] tab = new Etudiant[N];
-    Etudiant[] tabTrie = new Etudiant[N];
-
+    Etudiant[] tab;
+    Etudiant[] tabTrie;
     public Tableau(Etudiant[] tab, Etudiant[] tabTrie) {
         this.tab = tab;
         this.tabTrie = tabTrie;
+
     }
+    
+    
 
     public void afficher(Etudiant[] tab) {
         System.out.println("Etudiant list without tri");
@@ -15,12 +16,11 @@ public abstract class Tableau {
         }
     }
 
-    public void afficherTrie(Etudiant[] tab) {
-        triBulle(tab);
+    public void afficherTrie(Etudiant[] tabTrie) {
         System.out.println("----------------------");
         System.out.println("Etudiant list with triBulle");
-        for (int i = 0; i < tab.length; i++) {
-            System.out.println((i+1) + " : " + tab[i].name + " " + tab[i].prenom + " " + tab[i].note);
+        for (int i = 0; i < tabTrie.length; i++) {
+            System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom + " " + tabTrie[i].note);
         }
         /*  le temps d’exécution de triBulle 
             N=10 :  2.681s
@@ -29,11 +29,10 @@ public abstract class Tableau {
             N=10^4 : 5.267s
             N=10^5 : 116.404s
         */
-        triSelection(tab);
         System.out.println("----------------------");
         System.out.println("Etudiant list with triSelection");
-        for (int i = 0; i < tab.length; i++) {
-            System.out.println((i+1) + " : " + tab[i].name + " " + tab[i].prenom + " " + tab[i].note);
+        for (int i = 0; i < tabTrie.length; i++) {
+            System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom + " " + tabTrie[i].note);
         }
         /*  le temps d’exécution de triSelection
             N=10 : 2.421s
@@ -42,11 +41,10 @@ public abstract class Tableau {
             N=10^4 : 4.429s
             N=10^5 : 29.047s
         */
-        triInsertion(tab);
         System.out.println("----------------------");
         System.out.println("Etudiant list with triInsertion");
-        for (int i = 0; i < tab.length; i++) {
-            System.out.println((i+1) + " : " + tab[i].name + " " + tab[i].prenom + " " + tab[i].note);
+        for (int i = 0; i < tabTrie.length; i++) {
+            System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom + " " + tabTrie[i].note);
         }
         /*  le temps d’exécution de triInsertion
             N=10 : 2.869s
@@ -57,10 +55,10 @@ public abstract class Tableau {
         */
     }
 
-    public abstract void triBulle(Etudiant[] tabTri);
+    public abstract void triBulle();
 
-    public abstract void triInsertion(Etudiant[] tabTrie);
+    public abstract void triInsertion();
 
-    public abstract void triSelection(Etudiant[] tabTrie);
+    public abstract void triSelection();
     
 }
