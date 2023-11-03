@@ -65,7 +65,7 @@ public class Test {
             if (etudiantTri[middle].note == value) {
                 found = true;
             } else {
-                if (value < etudiantTri[middle].note) {
+                if (value > etudiantTri[middle].note) {
                     end = middle - 1;
                 } else {
                     start = middle + 1;
