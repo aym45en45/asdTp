@@ -32,32 +32,31 @@ public class TableauIteratif extends Tableau {
     public void triInsertion() {
         Etudiant box;
 
-    for (int i = 1; i < tab.length; i++) {
-        box = tab[i];
+    for (int i = 1; i < tabTrie.length; i++) {
+        box = tabTrie[i];
         int j = i;
-        while (j > 0 && tab[j - 1].note < box.note) {
-            tab[j] = tab[j - 1];
+        while (j > 0 && tabTrie[j - 1].note < box.note) {
+            tabTrie[j] = tabTrie[j - 1];
             j--;
         }
-        tab[j] = box;
+        tabTrie[j] = box;
     }
-    tabTrie=tab;
     }
 
     @Override
     public void triSelection() {
         int max;
         Etudiant temp;
-    for (int i = 0; i < tab.length - 1; i++) {
+    for (int i = 0; i < tabTrie.length - 1; i++) {
         max = i;
-        for (int j = i + 1; j < tab.length; j++) {
-            if (tab[j].note > tab[max].note) {
+        for (int j = i + 1; j < tabTrie.length; j++) {
+            if (tabTrie[j].note > tabTrie[max].note) {
                 max = j;
             }   
         }
-        temp = tab[i];
-        tab[i] = tab[max];
-        tab[max] = temp;
+        temp = tabTrie[i];
+        tabTrie[i] = tabTrie[max];
+        tabTrie[max] = temp;
     }
     }   
 }

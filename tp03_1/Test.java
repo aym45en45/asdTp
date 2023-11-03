@@ -1,11 +1,6 @@
-/* 
-ani riglt mchkl wala tablou tani mch null mais ja mchkl jdid
-howa tablou lowl ga3d ytratb ki n3ayt b3d l method tab.triBulle(); star 39
-ki nafichi tablou bl method tab.afficher(etudiant); star 42 ykhrj mratb
- */
-
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Test {
@@ -21,7 +16,7 @@ public class Test {
     public static void main(String[] args) {
 
         Etudiant[] etudiant = new Etudiant[N];
-        Etudiant[] etudiantTri = new Etudiant[N];
+        
         Random random = new Random();
         for (int i = 0; i < N; i++) {
             String name = getRandomName();
@@ -33,7 +28,8 @@ public class Test {
 
             etudiant[i] = new Etudiant(name, prenom, note);
         }
-        etudiantTri=etudiant;
+        Etudiant[] etudiantTri = Arrays.copyOf(etudiant, etudiant.length);
+
         TableauIteratif tab = new TableauIteratif(etudiant, etudiantTri);
         tab.triBulle();
         tab.triSelection();
