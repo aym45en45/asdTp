@@ -1,9 +1,9 @@
 
 /* 
- * dart comnt l 2 method tab.triSelection() tab.triInsertion() line 65,66 (wfi class Tableau lnfs methods bah tmchich khls)
- * w fi Recherche Sequentielle line 74-79
- * bah mtb9ach method takhdm brk mdam kayn whda khlf tkhdm nfs khdma sama rahm ymcho nrml
- * 
+ * 2 method triSelection() triInsertion() fi class Test wfi class Tableau w method Recherche Sequentielle
+ * dartlhm comment bah mtb9ach method takhdm brk mdam kayn whda khlf tkhdm nfs khdma sama rahm ymcho nrml
+ *
+ *
  * qst 4
  * le temps d’exécution de triBulle 
  * N=10 :  2.681s
