@@ -20,27 +20,29 @@ public abstract class Tableau {
         for (int i = 0; i < tabTrie.length; i++) {
             System.out.println((i + 1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom + " " + tabTrie[i].note);
         }
-
         /*
+         * doesn.t work
          * System.out.println("----------------------");
          * System.out.println("Etudiant list with triSelection");
          * for (int i = 0; i < tabTrie.length; i++) {
-         * System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom
+         * System.out.println((i + 1) + " : " + tabTrie[i].name + " " +
+         * tabTrie[i].prenom
          * + " " + tabTrie[i].note);
          * }
          * System.out.println("----------------------");
          * System.out.println("Etudiant list with triInsertion");
          * for (int i = 0; i < tabTrie.length; i++) {
-         * System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom
+         * System.out.println((i + 1) + " : " + tabTrie[i].name + " " +
+         * tabTrie[i].prenom
          * + " " + tabTrie[i].note);
          * }
          */
 
     }
 
-    public abstract void triBulle();
+    public abstract void triBulle(Etudiant[] tabTrie, int i, int passage);
 
-    public abstract void triInsertion();
+    public abstract void triInsertion(Etudiant[] tabTrie, int i, int j);
 
     public abstract void triSelection();
 

@@ -1,23 +1,16 @@
 
 /* 
+ * dart triBulle mchat mais 2 method triSelection et triInsertion mdrthomch
+ * 
+ * kayn error ki dir N = 1000 
+ * 
  * le temps d’exécution de triBulle 
- * N=10 :  s
- * N=10^2 : s
+ * N=10 :  2.472s
+ * N=10^2 : 2.596s
  * N=10^3 : s
  * N=10^4 : s
  * N=10^5 : s
- * le temps d’exécution de triSelection
- * N=10 : s
- * N=10^2 : s
- * N=10^3 : s
- * N=10^4 : s
- * N=10^5 : s
- * le temps d’exécution de triInsertion
- * N=10 : s
- * N=10^2 : s
- * N=10^3 : s
- * N=10^4 : s
- * N=10^5 : s
+ * 
  */
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -25,7 +18,7 @@ import java.util.Random;
 
 public class Test {
 
-    private static final int N = 20;
+    private static final int N = 10000;
     private static final String[] NAMES = {
             "Muhammad", "Aisha", "Ahmed", "Fatima", "Omar", "Leila", "Hasan", "Layla", "Ali", "Mariam"
     };
@@ -55,14 +48,16 @@ public class Test {
 
         TableauRecursif tab = new TableauRecursif(etudiant, etudiantTri);
 
-        tab.triBulle();
+        tab.triBulle(etudiantTri, 0, 0);
 
         // tab.triSelection();
-        // tab.triInsertion();
+        //tab.triInsertion(etudiantTri, 1, 1);
         
         tab.afficher(etudiant);
         tab.afficherTrie(etudiantTri);
     }
+
+
 
     public static String getRandomName() {
         Random random = new Random();

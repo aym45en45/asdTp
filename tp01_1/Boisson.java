@@ -15,7 +15,7 @@ public class Boisson {
     }
 
 
-    public int getNom() {
+    public String getNom() {
         return nom;
     }
 
