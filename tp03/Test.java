@@ -30,7 +30,7 @@ import java.util.Random;
 
 public class Test {
 
-    private static final int N = 20;
+    private static final int N = 100;
     private static final String[] NAMES = {
             "Muhammad", "Aisha", "Ahmed", "Fatima", "Omar", "Leila", "Hasan", "Layla", "Ali", "Mariam"
     };
@@ -59,12 +59,12 @@ public class Test {
         Etudiant[] etudiantTri = Arrays.copyOf(etudiant, etudiant.length);
 
         TableauIteratif tab = new TableauIteratif(etudiant, etudiantTri);
-
-        tab.triBulle();
-
+        long start = System.currentTimeMillis();
+        // tab.triBulle();
         // tab.triSelection();
-        // tab.triInsertion();
-
+         tab.triInsertion();
+        long end = System.currentTimeMillis();
+        System.out.println("Current Time in milliseconds when N = "+N+" is " + (start - end));
         tab.afficher(etudiant);
         tab.afficherTrie(etudiantTri);
 
@@ -85,7 +85,6 @@ public class Test {
             System.out.println("using Recherche Dichotomique the note " + etudiant[6].note + " exst");
         else
             System.out.println("using Recherche Dichotomique the note " + etudiant[6].note + " not exst");
-
         // la Affiche les étudiants (nom et prénom) qui ont obtenu un score d'examen
         // supérieur à 15
         AffichezSupEtudiants(etudiantTri);

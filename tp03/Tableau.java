@@ -17,26 +17,10 @@ public abstract class Tableau {
 
     public void afficherTrie(Etudiant[] tabTrie) {
         System.out.println("----------------------");
-        System.out.println("Etudiant list with triBulle");
+        System.out.println("Etudiant list with tri");
         for (int i = 0; i < tabTrie.length; i++) {
             System.out.println((i + 1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom + " " + tabTrie[i].note);
         }
-
-        /*
-         * System.out.println("----------------------");
-         * System.out.println("Etudiant list with triSelection");
-         * for (int i = 0; i < tabTrie.length; i++) {
-         * System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom
-         * + " " + tabTrie[i].note);
-         * }
-         * System.out.println("----------------------");
-         * System.out.println("Etudiant list with triInsertion");
-         * for (int i = 0; i < tabTrie.length; i++) {
-         * System.out.println((i+1) + " : " + tabTrie[i].name + " " + tabTrie[i].prenom
-         * + " " + tabTrie[i].note);
-         * }
-         */
-
     }
 
     public abstract void triBulle();
