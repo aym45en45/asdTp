@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Liste {
     private static final int LMAX = 1000;
@@ -20,14 +19,14 @@ public class Liste {
     public Liste inserer(Liste L, int p, Element e) {
         if (L.longueur_liste < LMAX) {
             if (L.longueur_liste != 0 && p != (L.longueur_liste + 1)) {
-                for (int j = L.longueur_liste - 1; j >= p; j--) {
-                    L.tab[j + 1] = L.tab[j];
+                for (int i = L.longueur_liste - 1; i >= p; i--) {
+                    L.tab[i + 1] = L.tab[i];
                 }
             }
             L.tab[p] = e;
             L.longueur_liste++;
         } else {
-            System.out.println("l’insertion est impossible, la liste est saturee");
+            System.out.println("L'insertion est impossible, la liste est saturée");
         }
         return L;
     }
@@ -38,7 +37,7 @@ public class Liste {
                 L.tab[j] = L.tab[j + 1];
             }
         }
-        L.longueur_liste = L.longueur_liste - 1;
+        L.longueur_liste--;
         return L;
     }
 
@@ -61,22 +60,7 @@ public class Liste {
         return L == listeVide();
     }
 
-    public static Liste creationListe(Liste L, int N) {
-        Scanner scr = new Scanner(System.in);
-        L.listeVide();
-        for (int i = 0; i < N; i++) {
-            int id = scr.nextInt();
-            Element e = new Element(id);
-            L.inserer(L, i, e);
-        }
-        return L;
-    }
 
-    public static void affichageListe(Liste L) {
-        for (int i = 0; i < L.longueur_iter(L); i++) {
-            System.out.println(L.acces(L, i).getid());
-        }
-    }
 
     public Element queue(Liste L) {
         return L.tab[L.longueur_liste - 1];
@@ -84,11 +68,11 @@ public class Liste {
 
     public Liste concatener(Liste L1, Liste L2) {
         Liste L3 = new Liste();
-        for (int i = 0; i < L1.longueur_liste - 1; i++) {
+        for (int i = 0; i < L1.longueur_liste ; i++) {
             Element A = L1.acces(L1, i);
             L3.inserer(L3, i, A);
         }
-        for (int i = 0; i < L2.longueur_liste - 1; i++) {
+        for (int i = 0; i < L2.longueur_liste ; i++) {
             Element A = L2.acces(L2, i);
             L3.inserer(L3, L1.longueur_liste + i, A);
         }
@@ -97,11 +81,13 @@ public class Liste {
 
     public Liste inverse(Liste L) {
         Liste ListeInv = new Liste();
-        for (int i = L.longueur_liste - 1; i >= 0; i--) {
+        for (int i = L.longueur_liste - 1,  j=0;i >= 0 && j<=L.longueur_liste - 1; i-- ,j++) {
             Element element = L.acces(L, i);
-            ListeInv.inserer(ListeInv, i, element);
+            ListeInv.inserer(ListeInv, j, element);
         }
         return ListeInv;
     }
+    public static int getLMAX(){
+	return LMAX;
+    }
 }
-
