@@ -5,11 +5,11 @@ public class Test {
 
     public static Liste creationListe(Liste L, int N) {
         Scanner scr = new Scanner(System.in);
-        L.listeVide();
+        L = Liste.listeVide();
         for (int i = 0; i < N; i++) {
             int id = scr.nextInt();
             Element e = new Element(id);
-            L.inserer(L, i, e);
+            L = Liste.inserer(L, i, e);
         }
         return L;
     }
@@ -22,61 +22,64 @@ public class Test {
 
     public static void main(String[] args) {
         Liste liste1 = new Liste();
+        Scanner scr = new Scanner(System.in);
+        System.out.println("Entrer size la liste1 :");
+        int size = scr.nextInt();
         System.out.println("Entrer les éléments de la liste1 :");
-        creationListe(liste1, 4);
-        if (liste1.estVide(liste1)) {
+        liste1 = creationListe(liste1, size);
+        if (Liste.estVide(liste1)) {
             System.out.println("La liste1 est vide");
         } else {
             System.out.println("Les éléments de la liste1 sont : ");
             affichageListe(liste1);
         }
-	
-	//part 2
-	if (liste1.estVide(liste1)) {
+
+        // part 2
+        if (Liste.estVide(liste1)) {
             System.out.println("La liste1 est vide");
-        } else if(liste1.longueur_iter(liste1)==1){
+        } else if (liste1.longueur_iter(liste1) == 1) {
             System.out.println("Le élément de la liste1 est : ");
             affichageListe(liste1);
-        }else{
+        } else {
             System.out.println("Le dernier élément est : ");
             System.out.println(liste1.queue(liste1).getId());
-	}
-	
-        
-	// part 2
+        }
+
+        // part 3
         Liste liste2 = new Liste();
+        System.out.println("Entrer size la liste2 :");
+        size = scr.nextInt();
         System.out.println("Entrer les éléments de la liste2 :");
-        creationListe(liste2, 2);
-        if (liste2.estVide(liste2)) {
+        liste2 = creationListe(liste2, size);
+        if (Liste.estVide(liste2)) {
             System.out.println("La liste2 est vide");
         } else {
             System.out.println("Les éléments de la liste2 sont : ");
             affichageListe(liste2);
         }
 
-	if (liste1.estVide(liste1)&&liste2.estVide(liste2)) {
+        if (Liste.estVide(liste1) && Liste.estVide(liste2)) {
             System.out.println("le résultat de la concaténation est une liste vide");
-        } else if(liste1.estVide(liste1)){
+        } else if (Liste.estVide(liste1)) {
             System.out.println("le résultat de la concaténation est: ");
             affichageListe(liste2);
-        }else if(liste2.estVide(liste2)){
+        } else if (Liste.estVide(liste2)) {
             System.out.println("le résultat de la concaténation est: ");
             affichageListe(liste1);
-        }else if((liste1.longueur_iter(liste1)+liste2.longueur_iter(liste2))>Liste.getLMAX()){
+        } else if ((liste1.longueur_iter(liste1) + liste2.longueur_iter(liste2)) > Liste.getLMAX()) {
             System.out.println("la concaténation est impossible");
-        }else{
+        } else {
             System.out.println("la concatener de list 1 et 2");
-            affichageListe(liste1.concatener(liste1, liste2));
-	}
+            Liste liste3 = Liste.concatener(liste1, liste2);
+            affichageListe(liste3);
+        }
 
-
-	// part 4
-	if (liste1.estVide(liste1)) {
+        // part 4
+        if (Liste.estVide(liste1)) {
             System.out.println("La liste1 est vide");
         } else {
             System.out.println("Les éléments de la liste1 inversée sont : ");
-            affichageListe(liste1.inverse(liste1));
+            affichageListe(Liste.inverse(liste1));
         }
     }
 }
-
